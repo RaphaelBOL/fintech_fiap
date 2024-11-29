@@ -1,6 +1,34 @@
-/* Estilos personalizados */
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100dvw;
+  min-height: 100dvh;
+}
 
-/* Estilo do placeholder */
+header{
+  max-width: 414px;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 414px;
+  margin: 0;
+}
+
+.wrapper {
+  margin-bottom: 92px;
+}
+
+footer{
+  max-width: 414px;
+}
+
 input::placeholder,
 select::placeholder,
 textarea::placeholder {
@@ -8,7 +36,6 @@ textarea::placeholder {
   opacity: 1;
 }
 
-/* Ocultar o ícone padrão do campo de data */
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
@@ -26,31 +53,25 @@ input[type="date"] {
   z-index: 1;
 }
 
-
-/* Estilo para o fundo dos selects abertos */
 select option {
   background-color: #2B2B2B;
 }
 
-/* Cor de fundo ao passar o mouse nos options dos selects */
 select option:hover {
   background-color: #1a1a1a;
   color: #fff;
 }
 
-/* Remover a seta padrão do select */
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-/* Esconder a seta padrão do IE */
 select::-ms-expand {
   display: none;
 }
 
-/* Ajuste nas bordas dos inputs para exibir apenas a borda inferior */
 input,
 select {
   border-top: none !important;
@@ -59,30 +80,15 @@ select {
   border-radius: 0 !important;
 }
 
-/* Aplicar border-radius de 5px na parte inferior dos inputs e selects */
+
 input,
 select {
   border-bottom-left-radius: 5px !important;
   border-bottom-right-radius: 5px !important;
 }
 
-/* Remover a borda de foco padrão */
 input:focus,
 select:focus {
   outline: none;
   box-shadow: none;
-}
-
-/* Ajuste para evitar que o footer sobreponha o conteúdo */
-body {
-  position: relative;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-/* O main precisa de um margin-bottom para evitar que o footer sobreponha o conteúdo */
-main {
-  margin-bottom: 92px;
-  /* Altura do footer (72px) + 20px de espaço */
 }

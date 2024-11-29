@@ -5,194 +5,184 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=414, initial-scale=1.0" />
   <title>Nova Transação</title>
-  <!-- Importando o CSS compilado do Tailwind -->
   <link href="dist/output.css" rel="stylesheet">
-  <!-- Importando seus estilos personalizados -->
   <link href="./src/css/style.css" rel="stylesheet">
-  <!-- Importando a fonte DM Sans -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-background text-white p-[20px] font-dm-sans">
+<body class="bg-background text-white p-[20px] font-dm-sans flex flex-col items-center w-[100dvw] min-h-[100dvh]">
   <!-- Header -->
-  <header class="w-[386px] h-[19px] mx-auto">
+  <header class="h-[19px] px-4 flex items-center justify-between">
+    <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M18 9.99997H0" stroke="#C6C6C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M9 19L0 10L9 1" stroke="#C6C6C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
     <h1 class="text-center text-text-label text-[16px] font-semibold tracking-[1px]">
       Nova Transação
     </h1>
+    <svg width="3" height="19" viewBox="0 0 3 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="2" cy="10" rx="1" ry="1.125" stroke="#C6C6C6" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <ellipse cx="2" cy="2.125" rx="1" ry="1.125" stroke="#C6C6C6" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <ellipse cx="2" cy="17.875" rx="1" ry="1.125" stroke="#C6C6C6" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
   </header>
-
   <!-- Formulário -->
-  <main class="mt-5">
-    <form class="space-y-[20px]">
-      <!-- Campo Tipo -->
-      <div>
-        <label class="block text-text-label mb-2">Tipo</label>
-        <div class="relative">
-          <select
-            class="w-full bg-transparent p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none text-placeholder"
-            id="tipo-select">
-            <option value="" disabled selected class="text-placeholder">Selecione o tipo</option>
-            <option value="Receita" class="text-receita">Receita</option>
-            <option value="Despesa" class="text-despesa">Despesa</option>
-            <option value="Transferência" class="text-icon-active">Transferência</option>
-            <option value="Investimento" class="text-receita">Investimento</option>
-            <option value="Dívidas" class="text-despesa">Dívidas</option>
-          </select>
-          <!-- Ícone de seta -->
-          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="Chevron down">
-                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </g>
-            </svg>
-
-          </span>
-        </div>
-      </div>
-
-      <!-- Campo Descrição -->
-      <div>
-        <label class="block text-text-label mb-2">Descrição</label>
-        <input type="text" placeholder="Digite a descrição"
-          class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
-      </div>
-
-      <!-- Campo Valor -->
-      <div>
-        <label class="block text-text-label mb-2">Valor</label>
-        <input type="text" placeholder="R$ 0,00" id="valor-input"
-          class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
-      </div>
-
-      <!-- Campo Data de Vencimento -->
-      <div>
-        <label class="block text-text-label mb-2">Data de Vencimento</label>
-        <div class="relative">
-          <input type="date" id="data-vencimento"
-            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
-          <span id="calendario-icone"
-            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder cursor-pointer">
-            <!-- Ícone de calendário -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
-              <rect x="1" y="1" width="22" height="20" rx="2" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M1 8.5H23" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-        </div>
-      </div>
-
-      <!-- Campo Efetivada -->
-      <div class="flex items-center justify-between">
-        <label class="text-text-label">Efetivada</label>
-        <label class="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" class="sr-only peer">
-          <div class="w-11 h-6 bg-gray-200 rounded-full peer-focus:outline-none peer-checked:bg-receita
-                peer-checked:after:translate-x-full peer-checked:after:border-white
-                after:content-[''] after:absolute after:top-[2px] after:left-[2px]
-                after:bg-white after:border-gray-300 after:border after:rounded-full
-                after:h-5 after:w-5 after:transition-all">
+  <main>
+    <div class=" wrapper w-full mt-5">
+      <form class="space-y-[20px]">
+        <!-- Campo Tipo -->
+        <div>
+          <label class="block text-text-label mb-2">Tipo</label>
+          <div class="relative">
+            <select
+              class="w-full bg-transparent p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none text-placeholder"
+              id="tipo-select">
+              <option value="" disabled selected class="text-placeholder">Selecione o tipo</option>
+              <option value="Receita" class="text-receita">Receita</option>
+              <option value="Despesa" class="text-despesa">Despesa</option>
+              <option value="Transferência" class="text-icon-active">Transferência</option>
+              <option value="Investimento" class="text-receita">Investimento</option>
+              <option value="Dívidas" class="text-despesa">Dívidas</option>
+            </select>
+            <!-- Ícone de seta -->
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Chevron down">
+                  <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+              </svg>
+            </span>
           </div>
-        </label>
-      </div>
-
-      <!-- Campo Categoria -->
-      <div>
-        <label class="block text-text-label mb-2">Categoria</label>
-        <div class="relative">
-          <select
-            class="w-full bg-transparent p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none text-placeholder"
-            id="categoria-select">
-            <option value="" disabled selected class="text-placeholder">Selecione a categoria</option>
-            <option value="Receitas" class="text-receita">Receitas</option>
-            <option value="Despesas" class="text-despesa">Despesas</option>
-            <option value="Investimentos" class="text-receita">Investimentos</option>
-            <option value="Dívidas" class="text-despesa">Dívidas</option>
-            <option value="Outros">Outros</option>
-          </select>
-          <!-- Ícone de seta -->
-          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="Chevron down">
-                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </g>
-            </svg>
-
-          </span>
         </div>
-      </div>
-
-      <!-- Campo Subcategoria -->
-      <div>
-        <label class="block text-text-label mb-2">Subcategoria</label>
-        <div class="relative">
-          <select
-            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none">
-            <option value="" disabled selected class="text-placeholder">Selecione a subcategoria</option>
-            <option>Salário</option>
-            <option>Venda</option>
-            <option>Reembolso</option>
-            <option>Gastos Fixos</option>
-            <option>Gastos Variáveis</option>
-            <option>Investimentos</option>
-            <option>Dívidas</option>
-            <option>Outros</option>
-          </select>
-          <!-- Ícone de seta -->
-          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="Chevron down">
-                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </g>
-            </svg>
-
-          </span>
+        <!-- Campo Descrição -->
+        <div>
+          <label class="block text-text-label mb-2">Descrição</label>
+          <input type="text" placeholder="Digite a descrição"
+            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
         </div>
-      </div>
-
-      <!-- Campo Conta -->
-      <div>
-        <label class="block text-text-label mb-2">Conta</label>
-        <div class="relative">
-          <select
-            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none">
-            <option value="" disabled selected class="text-placeholder">Selecione a conta</option>
-            <option>Santander</option>
-            <option>Itaú</option>
-            <option>Bradesco</option>
-          </select>
-          <!-- Ícone de seta -->
-          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="Chevron down">
-                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </g>
-            </svg>
-
-          </span>
+        <!-- Campo Valor -->
+        <div>
+          <label class="block text-text-label mb-2">Valor</label>
+          <input type="text" placeholder="R$ 0,00" id="valor-input"
+            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
         </div>
-      </div>
-
-      <!-- Botões -->
-      <!-- Adicionado 'mb-[92px]' para criar espaço suficiente acima do footer -->
-      <div class="flex justify-between mb-[92px]">
-        <button type="button" class="w-[48%] border border-despesa text-despesa p-3 rounded">Cancelar</button>
-        <button type="submit" class="w-[48%] bg-receita text-white p-3 rounded">Salvar</button>
-      </div>
-
-    </form>
+        <!-- Campo Data de Vencimento -->
+        <div>
+          <label class="block text-text-label mb-2">Data de Vencimento</label>
+          <div class="relative">
+            <input type="date" id="data-vencimento"
+              class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
+            <span id="calendario-icone"
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder cursor-pointer">
+              <!-- Ícone de calendário -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+                <rect x="1" y="1" width="22" height="20" rx="2" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1 8.5H23" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <!-- Campo Efetivada -->
+        <div class="flex items-center justify-between">
+          <label class="text-text-label">Efetivada</label>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer">
+            <div class="w-11 h-6 bg-gray-200 rounded-full peer-focus:outline-none peer-checked:bg-receita
+                    peer-checked:after:translate-x-full peer-checked:after:border-white
+                    after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+                    after:bg-white after:border-gray-300 after:border after:rounded-full
+                    after:h-5 after:w-5 after:transition-all">
+            </div>
+          </label>
+        </div>
+        <!-- Campo Categoria -->
+        <div>
+          <label class="block text-text-label mb-2">Categoria</label>
+          <div class="relative">
+            <select
+              class="w-full bg-transparent p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none text-placeholder"
+              id="categoria-select">
+              <option value="" disabled selected class="text-placeholder">Selecione a categoria</option>
+              <option value="Receitas" class="text-receita">Receitas</option>
+              <option value="Despesas" class="text-despesa">Despesas</option>
+              <option value="Investimentos" class="text-receita">Investimentos</option>
+              <option value="Dívidas" class="text-despesa">Dívidas</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <!-- Ícone de seta -->
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Chevron down">
+                  <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <!-- Campo Subcategoria -->
+        <div>
+          <label class="block text-text-label mb-2">Subcategoria</label>
+          <div class="relative">
+            <select
+              class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none">
+              <option value="" disabled selected class="text-placeholder">Selecione a subcategoria</option>
+              <option>Salário</option>
+              <option>Venda</option>
+              <option>Reembolso</option>
+              <option>Gastos Fixos</option>
+              <option>Gastos Variáveis</option>
+              <option>Investimentos</option>
+              <option>Dívidas</option>
+              <option>Outros</option>
+            </select>
+            <!-- Ícone de seta -->
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Chevron down">
+                  <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <!-- Campo Conta -->
+        <div>
+          <label class="block text-text-label mb-2">Conta</label>
+          <div class="relative">
+            <select
+              class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none">
+              <option value="" disabled selected class="text-placeholder">Selecione a conta</option>
+              <option>Santander</option>
+              <option>Itaú</option>
+              <option>Bradesco</option>
+            </select>
+            <!-- Ícone de seta -->
+            <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Chevron down">
+                  <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </g>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div class="flex justify-between mb-[92px]">
+          <button type="button" class="w-[48%] border border-despesa text-despesa p-3 rounded">Cancelar</button>
+          <button type="submit" class="w-[48%] bg-receita text-white p-3 rounded">Salvar</button>
+        </div>
+      </form>
+    </div>
   </main>
-
-  <!-- Footer -->
-  <!-- Ajustado para 'position: fixed' -->
-  <footer class="w-full bg-footer-bg h-[72px] flex items-center justify-around fixed bottom-0 left-0">
-    <!-- Ícones do menu -->
+  <footer class="w-full bg-footer-bg h-[72px] flex items-center justify-around fixed bottom-0">
     <div class="text-icon-inactive">
-      <!-- Ícone 1 -->
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd"
           d="M1 8L10 1L19 8V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V8Z" fill="#C6C6C6"
@@ -202,14 +192,12 @@
       </svg>
     </div>
     <div class="text-icon-inactive">
-      <!-- Ícone 2 -->
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
         <path d="M23 11H18.6L15.3 21L8.7 1L5.4 11H1" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round"
           stroke-linejoin="round" />
       </svg>
     </div>
     <div class="text-icon-inactive">
-      <!-- Ícone 3 -->
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
         <path fill-rule="evenodd" clip-rule="evenodd"
           d="M6.53668 1H20.9585C22.0857 1.00216 22.9987 1.91581 23 3.043V21.7831C23 21.9452 22.8686 22.0766 22.7065 22.0766H8.28279C8.12072 22.0766 7.98933 21.9452 7.98933 21.7831V17.4354H3.043C1.91543 17.4341 1.00162 16.5205 1 15.3929V3.13104C1 2.96896 1.13139 2.83757 1.29346 2.83757H4.50445C4.61118 1.79493 5.48859 1.00157 6.53668 1ZM1.58987 3.42744V15.3929C1.58023 15.9182 1.85493 16.4077 2.30826 16.6732C2.7616 16.9386 3.32293 16.9386 3.77627 16.6732C4.22961 16.4077 4.50431 15.9182 4.49467 15.3929V3.42744H1.58987ZM4.47565 16.8456C4.86501 16.4625 5.08423 15.9391 5.0841 15.3929V3.043C5.0841 2.52402 5.36097 2.04446 5.81043 1.78497C6.25988 1.52548 6.81362 1.52548 7.26307 1.78497C7.71252 2.04446 7.98939 2.52402 7.98939 3.043V16.8456H4.47565ZM8.57919 21.4882H22.4111V3.043C22.41 2.24117 21.7603 1.59143 20.9585 1.59035H7.97074C8.36028 1.97329 8.57954 2.49675 8.57919 3.043V21.4882Z"
@@ -235,7 +223,6 @@
       </svg>
     </div>
     <div class="text-icon-active">
-      <!-- Ícone + ativo -->
       <span><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="add">
             <path id="icon"
@@ -246,10 +233,7 @@
       </span>
     </div>
   </footer>
-
-  <!-- Scripts -->
   <script src="./src/js/script.js"></script>
-
 </body>
 
 </html>
