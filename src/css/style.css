@@ -1,0 +1,88 @@
+/* Estilos personalizados */
+
+/* Estilo do placeholder */
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #C6C6C6;
+  opacity: 1;
+}
+
+/* Ocultar o ícone padrão do campo de data */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="date"]::-ms-expand {
+  display: none;
+}
+
+input[type="date"] {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Estilo para o fundo dos selects abertos */
+select option {
+  background-color: #2B2B2B;
+}
+
+/* Cor de fundo ao passar o mouse nos options dos selects */
+select option:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* Remover a seta padrão do select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Esconder a seta padrão do IE */
+select::-ms-expand {
+  display: none;
+}
+
+/* Ajuste nas bordas dos inputs para exibir apenas a borda inferior */
+input,
+select {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0 !important;
+}
+
+/* Aplicar border-radius de 5px na parte inferior dos inputs e selects */
+input,
+select {
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
+/* Remover a borda de foco padrão */
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Ajuste para evitar que o footer sobreponha o conteúdo */
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* O main precisa de um margin-bottom para evitar que o footer sobreponha o conteúdo */
+main {
+  margin-bottom: 92px;
+  /* Altura do footer (72px) + 20px de espaço */
+}

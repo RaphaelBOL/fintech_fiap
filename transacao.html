@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=414, initial-scale=1.0" />
+  <title>Nova Transação</title>
+  <!-- Importando o CSS compilado do Tailwind -->
+  <link href="dist/output.css" rel="stylesheet">
+  <!-- Importando seus estilos personalizados -->
+  <link href="./src/css/style.css" rel="stylesheet">
+  <!-- Importando a fonte DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-background text-white p-[20px] font-dm-sans">
+  <!-- Header -->
+  <header class="w-[386px] h-[19px] mx-auto">
+    <h1 class="text-center text-text-label text-[16px] font-semibold tracking-[1px]">
+      Nova Transação
+    </h1>
+  </header>
+
+  <!-- Formulário -->
+  <main class="mt-5">
+    <form class="space-y-[20px]">
+      <!-- Campo Tipo -->
+      <div>
+        <label class="block text-text-label mb-2">Tipo</label>
+        <div class="relative">
+          <select
+            class="w-full bg-transparent p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none text-placeholder"
+            id="tipo-select">
+            <option value="" disabled selected class="text-placeholder">Selecione o tipo</option>
+            <option value="Receita" class="text-receita">Receita</option>
+            <option value="Despesa" class="text-despesa">Despesa</option>
+            <option value="Transferência" class="text-icon-active">Transferência</option>
+            <option value="Investimento" class="text-receita">Investimento</option>
+            <option value="Dívidas" class="text-despesa">Dívidas</option>
+          </select>
+          <!-- Ícone de seta -->
+          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Chevron down">
+                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo Descrição -->
+      <div>
+        <label class="block text-text-label mb-2">Descrição</label>
+        <input type="text" placeholder="Digite a descrição"
+          class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
+      </div>
+
+      <!-- Campo Valor -->
+      <div>
+        <label class="block text-text-label mb-2">Valor</label>
+        <input type="text" placeholder="R$ 0,00" id="valor-input"
+          class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
+      </div>
+
+      <!-- Campo Data de Vencimento -->
+      <div>
+        <label class="block text-text-label mb-2">Data de Vencimento</label>
+        <div class="relative">
+          <input type="date" id="data-vencimento"
+            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] focus:outline-none" />
+          <span id="calendario-icone"
+            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder cursor-pointer">
+            <!-- Ícone de calendário -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+              <rect x="1" y="1" width="22" height="20" rx="2" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M1 8.5H23" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo Efetivada -->
+      <div class="flex items-center justify-between">
+        <label class="text-text-label">Efetivada</label>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer">
+          <div class="w-11 h-6 bg-gray-200 rounded-full peer-focus:outline-none peer-checked:bg-receita
+                peer-checked:after:translate-x-full peer-checked:after:border-white
+                after:content-[''] after:absolute after:top-[2px] after:left-[2px]
+                after:bg-white after:border-gray-300 after:border after:rounded-full
+                after:h-5 after:w-5 after:transition-all">
+          </div>
+        </label>
+      </div>
+
+      <!-- Campo Categoria -->
+      <div>
+        <label class="block text-text-label mb-2">Categoria</label>
+        <div class="relative">
+          <select
+            class="w-full bg-transparent p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none text-placeholder"
+            id="categoria-select">
+            <option value="" disabled selected class="text-placeholder">Selecione a categoria</option>
+            <option value="Receitas" class="text-receita">Receitas</option>
+            <option value="Despesas" class="text-despesa">Despesas</option>
+            <option value="Investimentos" class="text-receita">Investimentos</option>
+            <option value="Dívidas" class="text-despesa">Dívidas</option>
+            <option value="Outros">Outros</option>
+          </select>
+          <!-- Ícone de seta -->
+          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Chevron down">
+                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo Subcategoria -->
+      <div>
+        <label class="block text-text-label mb-2">Subcategoria</label>
+        <div class="relative">
+          <select
+            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none">
+            <option value="" disabled selected class="text-placeholder">Selecione a subcategoria</option>
+            <option>Salário</option>
+            <option>Venda</option>
+            <option>Reembolso</option>
+            <option>Gastos Fixos</option>
+            <option>Gastos Variáveis</option>
+            <option>Investimentos</option>
+            <option>Dívidas</option>
+            <option>Outros</option>
+          </select>
+          <!-- Ícone de seta -->
+          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Chevron down">
+                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+
+          </span>
+        </div>
+      </div>
+
+      <!-- Campo Conta -->
+      <div>
+        <label class="block text-text-label mb-2">Conta</label>
+        <div class="relative">
+          <select
+            class="w-full bg-transparent text-placeholder p-3 border-b border-1px border-text-label rounded-b-[5px] appearance-none focus:outline-none">
+            <option value="" disabled selected class="text-placeholder">Selecione a conta</option>
+            <option>Santander</option>
+            <option>Itaú</option>
+            <option>Bradesco</option>
+          </select>
+          <!-- Ícone de seta -->
+          <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-placeholder pointer-events-none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Chevron down">
+                <path id="Icon" d="M4 6L8 10L12 6" stroke="#C6C6C6" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+            </svg>
+
+          </span>
+        </div>
+      </div>
+
+      <!-- Botões -->
+      <!-- Adicionado 'mb-[92px]' para criar espaço suficiente acima do footer -->
+      <div class="flex justify-between mb-[92px]">
+        <button type="button" class="w-[48%] border border-despesa text-despesa p-3 rounded">Cancelar</button>
+        <button type="submit" class="w-[48%] bg-receita text-white p-3 rounded">Salvar</button>
+      </div>
+
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <!-- Ajustado para 'position: fixed' -->
+  <footer class="w-full bg-footer-bg h-[72px] flex items-center justify-around fixed bottom-0 left-0">
+    <!-- Ícones do menu -->
+    <div class="text-icon-inactive">
+      <!-- Ícone 1 -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M1 8L10 1L19 8V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V8Z" fill="#C6C6C6"
+          stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7 21V11H13V21" fill="#272727" />
+        <path d="M7 21V11H13V21" stroke="#272727" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+    <div class="text-icon-inactive">
+      <!-- Ícone 2 -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="22" viewBox="0 0 24 22" fill="none">
+        <path d="M23 11H18.6L15.3 21L8.7 1L5.4 11H1" stroke="#C6C6C6" stroke-width="1.4" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </div>
+    <div class="text-icon-inactive">
+      <!-- Ícone 3 -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M6.53668 1H20.9585C22.0857 1.00216 22.9987 1.91581 23 3.043V21.7831C23 21.9452 22.8686 22.0766 22.7065 22.0766H8.28279C8.12072 22.0766 7.98933 21.9452 7.98933 21.7831V17.4354H3.043C1.91543 17.4341 1.00162 16.5205 1 15.3929V3.13104C1 2.96896 1.13139 2.83757 1.29346 2.83757H4.50445C4.61118 1.79493 5.48859 1.00157 6.53668 1ZM1.58987 3.42744V15.3929C1.58023 15.9182 1.85493 16.4077 2.30826 16.6732C2.7616 16.9386 3.32293 16.9386 3.77627 16.6732C4.22961 16.4077 4.50431 15.9182 4.49467 15.3929V3.42744H1.58987ZM4.47565 16.8456C4.86501 16.4625 5.08423 15.9391 5.0841 15.3929V3.043C5.0841 2.52402 5.36097 2.04446 5.81043 1.78497C6.25988 1.52548 6.81362 1.52548 7.26307 1.78497C7.71252 2.04446 7.98939 2.52402 7.98939 3.043V16.8456H4.47565ZM8.57919 21.4882H22.4111V3.043C22.41 2.24117 21.7603 1.59143 20.9585 1.59035H7.97074C8.36028 1.97329 8.57954 2.49675 8.57919 3.043V21.4882Z"
+          fill="#C6C6C6" />
+        <path
+          d="M20.9585 1L20.959 0.7H20.9585V1ZM6.53668 1V0.7L6.53623 0.7L6.53668 1ZM23 3.043H23.3L23.3 3.04264L23 3.043ZM7.98933 17.4354H8.28933V17.1354H7.98933V17.4354ZM3.043 17.4354L3.04264 17.7354H3.043V17.4354ZM1 15.3929H0.7L0.7 15.3934L1 15.3929ZM4.50445 2.83757V3.13757H4.7753L4.80289 2.86812L4.50445 2.83757ZM1.58987 15.3929L1.88987 15.3984V15.3929H1.58987ZM1.58987 3.42744V3.12744H1.28987V3.42744H1.58987ZM2.30826 16.6732L2.45985 16.4143H2.45985L2.30826 16.6732ZM4.49467 15.3929H4.19462L4.19472 15.3984L4.49467 15.3929ZM4.49467 3.42744H4.79467V3.12744H4.49467V3.42744ZM5.0841 15.3929H4.7841V15.393L5.0841 15.3929ZM4.47565 16.8456L4.26526 16.6317L3.74296 17.1456H4.47565V16.8456ZM5.81043 1.78497L5.96043 2.04478L5.81043 1.78497ZM7.26307 1.78497L7.41307 1.52516V1.52516L7.26307 1.78497ZM7.98939 16.8456V17.1456H8.28939V16.8456H7.98939ZM22.4111 21.4882V21.7882H22.7111V21.4882H22.4111ZM8.57919 21.4882H8.27919V21.7882H8.57919V21.4882ZM22.4111 3.043H22.7111L22.7111 3.04259L22.4111 3.043ZM20.9585 1.59035L20.9589 1.29035H20.9585V1.59035ZM7.97074 1.59035V1.29035H7.23762L7.76043 1.80429L7.97074 1.59035ZM8.57919 3.043L8.27919 3.04281V3.043H8.57919ZM20.9585 0.7H6.53668V1.3H20.9585V0.7ZM23.3 3.04264C23.2985 1.75013 22.2516 0.702472 20.959 0.700001L20.9579 1.3C21.9198 1.30184 22.6989 2.08149 22.7 3.04335L23.3 3.04264ZM23.3 21.7831V3.043H22.7V21.7831H23.3ZM22.7065 22.3766C23.0343 22.3766 23.3 22.1109 23.3 21.7831H22.7C22.7 21.7795 22.7029 21.7766 22.7065 21.7766V22.3766ZM8.28279 22.3766H22.7065V21.7766H8.28279V22.3766ZM7.68933 21.7831C7.68933 22.1109 7.95503 22.3766 8.28279 22.3766V21.7766C8.2864 21.7766 8.28933 21.7795 8.28933 21.7831H7.68933ZM7.68933 17.4354V21.7831H8.28933V17.4354H7.68933ZM3.043 17.7354H7.98933V17.1354H3.043V17.7354ZM0.7 15.3934C0.701854 16.6863 1.74969 17.7339 3.04264 17.7354L3.04336 17.1354C2.08117 17.1343 1.30138 16.3547 1.3 15.3925L0.7 15.3934ZM0.7 3.13104V15.3929H1.3V3.13104H0.7ZM1.29346 2.53757C0.965703 2.53757 0.7 2.80327 0.7 3.13104H1.3C1.3 3.13465 1.29707 3.13757 1.29346 3.13757V2.53757ZM4.50445 2.53757H1.29346V3.13757H4.50445V2.53757ZM6.53623 0.7C5.33446 0.701796 4.32839 1.61149 4.20601 2.80702L4.80289 2.86812C4.89397 1.97837 5.64272 1.30134 6.53713 1.3L6.53623 0.7ZM1.88987 15.3929V3.42744H1.28987V15.3929H1.88987ZM2.45985 16.4143C2.10014 16.2036 1.88217 15.8152 1.88982 15.3984L1.28992 15.3874C1.27829 16.0211 1.60972 16.6118 2.15668 16.932L2.45985 16.4143ZM3.62469 16.4143C3.26497 16.6249 2.81956 16.6249 2.45985 16.4143L2.15668 16.932C2.70364 17.2523 3.3809 17.2523 3.92786 16.932L3.62469 16.4143ZM4.19472 15.3984C4.20237 15.8152 3.9844 16.2036 3.62469 16.4143L3.92786 16.932C4.47482 16.6118 4.80625 16.0211 4.79462 15.3874L4.19472 15.3984ZM4.19467 3.42744V15.3929H4.79467V3.42744H4.19467ZM1.58987 3.72744H4.49467V3.12744H1.58987V3.72744ZM4.7841 15.393C4.78421 15.8588 4.59728 16.3051 4.26526 16.6317L4.68605 17.0594C5.13275 16.62 5.38425 16.0195 5.3841 15.3929L4.7841 15.393ZM4.7841 3.043V15.3929H5.3841V3.043H4.7841ZM5.66043 1.52516C5.11815 1.83824 4.7841 2.41684 4.7841 3.043H5.3841C5.3841 2.6312 5.6038 2.25068 5.96043 2.04478L5.66043 1.52516ZM7.41307 1.52516C6.8708 1.21208 6.2027 1.21208 5.66043 1.52516L5.96043 2.04478C6.31705 1.83888 6.75644 1.83888 7.11307 2.04478L7.41307 1.52516ZM8.28939 3.043C8.28939 2.41684 7.95534 1.83824 7.41307 1.52516L7.11307 2.04478C7.4697 2.25068 7.68939 2.6312 7.68939 3.043H8.28939ZM8.28939 16.8456V3.043H7.68939V16.8456H8.28939ZM4.47565 17.1456H7.98939V16.5456H4.47565V17.1456ZM22.4111 21.1882H8.57919V21.7882H22.4111V21.1882ZM22.1111 3.043V21.4882H22.7111V3.043H22.1111ZM20.9581 1.89035C21.5945 1.89121 22.1103 2.40694 22.1111 3.0434L22.7111 3.04259C22.7098 2.0754 21.9261 1.29165 20.9589 1.29035L20.9581 1.89035ZM7.97074 1.89035H20.9585V1.29035H7.97074V1.89035ZM8.87919 3.04319C8.87959 2.41642 8.62802 1.8158 8.18105 1.37641L7.76043 1.80429C8.09255 2.13078 8.27949 2.57708 8.27919 3.04281L8.87919 3.04319ZM8.87919 21.4882V3.043H8.27919V21.4882H8.87919Z"
+          fill="#C6C6C6" />
+        <path
+          d="M20.5961 5.40685H10.6795C10.5166 5.40685 10.3845 5.53889 10.3845 5.70178C10.3845 5.86466 10.5166 5.99671 10.6795 5.99671H20.5961C20.759 5.99671 20.891 5.86466 20.891 5.70178C20.891 5.53889 20.759 5.40685 20.5961 5.40685Z"
+          fill="#C6C6C6" stroke="#C6C6C6" stroke-width="0.6" />
+        <path
+          d="M20.5961 8.02699H10.6795C10.5166 8.02699 10.3845 8.15904 10.3845 8.32192C10.3845 8.48481 10.5166 8.61685 10.6795 8.61685H20.5961C20.759 8.61685 20.891 8.48481 20.891 8.32192C20.891 8.15904 20.759 8.02699 20.5961 8.02699Z"
+          fill="#C6C6C6" stroke="#C6C6C6" stroke-width="0.6" />
+        <path
+          d="M20.5961 10.6471H10.6795C10.5166 10.6471 10.3845 10.7792 10.3845 10.9421C10.3845 11.1049 10.5166 11.237 10.6795 11.237H20.5961C20.759 11.237 20.891 11.1049 20.891 10.9421C20.891 10.7792 20.759 10.6471 20.5961 10.6471V10.6471Z"
+          fill="#C6C6C6" stroke="#C6C6C6" stroke-width="0.6" />
+        <path
+          d="M20.5961 13.2678H10.6795C10.5166 13.2678 10.3845 13.3998 10.3845 13.5627C10.3845 13.7256 10.5166 13.8576 10.6795 13.8576H20.5961C20.759 13.8576 20.891 13.7256 20.891 13.5627C20.891 13.3998 20.759 13.2678 20.5961 13.2678Z"
+          fill="#C6C6C6" stroke="#C6C6C6" stroke-width="0.6" />
+        <path
+          d="M17.1533 15.8884H10.6795C10.5163 15.8884 10.384 16.0207 10.384 16.1838C10.384 16.347 10.5163 16.4792 10.6795 16.4792H17.1533C17.3161 16.4792 17.4482 16.3472 17.4482 16.1843C17.4482 16.0214 17.3161 15.8894 17.1533 15.8894V15.8884Z"
+          fill="#C6C6C6" stroke="#C6C6C6" stroke-width="0.6" />
+      </svg>
+    </div>
+    <div class="text-icon-active">
+      <!-- Ícone + ativo -->
+      <span><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="add">
+            <path id="icon"
+              d="M12.8333 15.1667H5.83325V12.8333H12.8333V5.83333H15.1666V12.8333H22.1666V15.1667H15.1666V22.1667H12.8333V15.1667Z"
+              fill="#FDF51B" />
+          </g>
+        </svg>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./src/js/script.js"></script>
+
+</body>
+
+</html>
